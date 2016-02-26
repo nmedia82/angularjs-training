@@ -1,0 +1,19 @@
+<h2>Recent Orders</h2>
+<pre>{{orderss | json}}</pre>
+
+<div class="list-group">
+      <a class="list-group-item" ng-repeat="order in orders" href="#detail/{{order.id}}">{{order.order_number}} - 
+      {{order.billing_address.first_name}} {{order.billing_address.last_name}} --
+      Order Data {{order.created_at | date:"dd-MMM-yyyy"}}
+
+      <span class="badge">
+        {{order.line_items.length}}
+      </span>
+      
+      <!-- <ul class="list">
+        <li ng-repeat="item in order.line_items">
+          <a href="#detail/{{order.id}}/itemid/{{item.id}}">{{item.name}}</a>
+        </li>
+      </ul> -->
+    </a>
+  </div>
