@@ -14,16 +14,12 @@ appControllers.controller('menuController', function($scope, $route){
 
 appControllers.controller('ordersController', function($scope, orderData){
     
-   
-    if( orderData.orders !== null ){
-        $scope.orders = orderData.orders;
-    }else{
-        orderData.getOrders().success(function(data){
+    console.log(orderData);
+    
+    orderData.getOrders().success(function(data){
             
-            orderData.orders =  data.orders;    
-            $scope.orders = orderData.orders;
+            $scope.orders = data.orders;
         });
-    }
     
 
 });
